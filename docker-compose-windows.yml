@@ -1,0 +1,5 @@
+web:
+  build: .
+  command: npm start
+  ports: ['8088:80']
+  volumes: ['/c/Users/phili/divio/react-frontend:/app:rw']
