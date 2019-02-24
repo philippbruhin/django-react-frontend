@@ -18,7 +18,7 @@ export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
 
   axios
-    .get("/api/auth/user", tokenConfig(getState))
+    .get("http://127.0.0.1:8000/api/auth/user", tokenConfig(getState))
     .then(res => {
       dispatch({
         type: USER_LOADED,
@@ -38,7 +38,10 @@ export const login = (username, password) => dispatch => {
   // Headers
   const config = {
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin" : "*",
+      "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
     }
   };
 
@@ -66,7 +69,8 @@ export const register = ({ username, password, email }) => dispatch => {
   // Headers
   const config = {
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
     }
   };
 
@@ -112,7 +116,8 @@ export const tokenConfig = getState => {
   // Headers
   const config = {
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
     }
   };
 
