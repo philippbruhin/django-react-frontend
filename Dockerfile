@@ -14,10 +14,10 @@ WORKDIR /app
 ENV PATH=/node_modules/.bin:$PATH
 RUN npm run build
 
-ENV PORT=3000
+ENV PORT=80
 ENV HOST=0.0.0.0
 ENV BROWSER='none'
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD npm run start:server
